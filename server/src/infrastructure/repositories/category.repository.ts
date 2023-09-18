@@ -1,32 +1,31 @@
-import Category from '../../domain/entities/category.entity';
+import Category from '../../domain/entities/category.entities';
 
 class CategoryRepository {
-    private categorys: Category[];
+    private categories: Category[];
 
     public constructor() {
-        this.categorys = []
+        this.categories = []
     }
 
 
     public async save(category: Category): Promise<void> {
-        const saveCategory = this.categorys.find(a => a.getId() === category.getId());
+        const saveCategory = this.categories.find(a => a.getId() === category.getId());
 
         if (saveCategory) {
-            this.categorys.splice(this.categorys.indexOf(saveCategory), 1);
+            this.categories.splice(this.categories.indexOf(saveCategory), 1);
         }
-        this.categorys.push(category)
+        this.categories.push(category)
     }
 
     public async findOneById(id: string): Promise<Category | null> {
-        const category = this.categorys.find(a => a.getId() === id);
+        const category = this.categories.find(a => a.getId() === id);
 
         return category ? category:null;
     } 
 
-    public async getAllCategory(): Promise<Category | null>{
-        const category = this.categorys.find(a => a.getAll());
+    public async getAllCategory(): Promise<Array<Category>>{
 
-        return category ? category:null;
+        return this.categories;
     } 
 }
 
