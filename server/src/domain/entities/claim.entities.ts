@@ -14,6 +14,7 @@ class Claim {
   private location: string;
   private createdAT: Date;
   private cloneOf?: Claim;
+    static create: any;
 
   private constructor(
     id: string,
