@@ -41,5 +41,5 @@ export class CreateClaimCommand {
     getCreatedAT():Date{
         return this.createdAT;
     }
-
+    
 }
