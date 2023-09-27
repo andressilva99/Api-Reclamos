@@ -28,8 +28,8 @@ app.use(express.json());
 
 // Add router
 // you should add your routes here...
-//routes.push(new PassengerRoutes(app));
-
+//routes.push(new PassengerRoutes(app)); crear una nueva estancia del la ruta y push
+//routes.push()
 
 app.listen(3000, () => {
   routes.forEach((route: CommonRoutes) => {
