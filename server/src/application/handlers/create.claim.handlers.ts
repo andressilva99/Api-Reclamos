@@ -13,9 +13,20 @@ class CreateClaimHandlers{
             command.getLocation(),
             command.getCreatedAT()
         );
-
-        await claimRepository.save(claim)
+        const pin = command.getPin();
+        if (validacionPin(pin)){
+            await claimRepository.save(claim);
+            console.log('Reclamo creado con exito.')
+        } 
+        else{
+            console.log('Pin no valido. El reclamo no se ha podido tomar, verifique el pin!')
+        }        
     }
+}
+function validacionPin(pin: string): boolean {
+    const pinRegex = /^\d{6}$/;
+    return pinRegex.test(pin);
 }
 
 export default new CreateClaimHandlers();
+

@@ -6,6 +6,7 @@ export class CreateClaimCommand {
     private readonly categoryId: string;
     private readonly location: string;
     private readonly createdAT: Date;
+    private readonly pin: string;
 
     constructor( 
         ownerId: string,
@@ -14,6 +15,7 @@ export class CreateClaimCommand {
         categoryId: string,
         location: string,
         createdAT: Date,
+        pin: string,
         ) {
             this.ownerId = ownerId;
             this.title = title;
@@ -21,6 +23,7 @@ export class CreateClaimCommand {
             this.categoryId = categoryId;
             this.location = location;
             this.createdAT = createdAT;
+            this.pin = pin;
     }
 
     getOwner():string{
@@ -40,6 +43,9 @@ export class CreateClaimCommand {
     }
     getCreatedAT():Date{
         return this.createdAT;
+    }
+    getPin():string{
+        return this.pin;
     }
     
 }
