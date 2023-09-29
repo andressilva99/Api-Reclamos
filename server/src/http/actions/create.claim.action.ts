@@ -4,7 +4,7 @@ import createClaimHandlers from '../../application/handlers/create.claim.handler
 
 class CreateUserAction {
   async run (req: Request, res: Response) {
-    const { ownerId, title, description, categoryId, location, createdAT } =
+    const { ownerId, title, description, categoryId, location, createdAT, pin } =
       req.body
 
     const command = new CreateClaimCommand(
@@ -13,7 +13,8 @@ class CreateUserAction {
       description,
       categoryId,
       location,
-      createdAT
+      createdAT,
+      pin
     )
     await createClaimHandlers.execute(command)
     return res.status(201).json({ message: 'User Created' })
