@@ -1,4 +1,4 @@
-export class CreateUserCommand {
+export class CreateVisitorCommand {
     private readonly id: string ;
     private readonly ip: string ;
     private readonly nickname: string ;

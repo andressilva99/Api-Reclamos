@@ -17,6 +17,12 @@ class Visitor {
     public getId(): string {
         return this.id;
       }
+      public getIp(): string {
+        return this.ip;
+      }
+      public getNickName(): string {
+        return this.nickname;
+      }
 }
 
 
