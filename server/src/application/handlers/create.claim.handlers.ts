@@ -13,7 +13,7 @@ class CreateClaimHandlers{
             command.getLocation(),
             command.getCreatedAT()
         );
-        const pin = command.getPin();
+        const pin = command.getPin(); 
         if (validacionPin(pin)){
             await claimRepository.save(claim);
             console.log('Reclamo creado con exito.')
