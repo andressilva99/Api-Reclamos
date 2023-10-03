@@ -7,7 +7,8 @@ class createVisitorHandler  {
         const user = Visitor.create(
           command.getId(),
           command.getIp(),
-          command.getNickName()
+          command.getNickName(),
+          command.getPin()
         );
     
         await visitorRepository.save(user);

@@ -3,6 +3,8 @@ class Visitor {
     private ip: string
     private nickname: string
     private pin: string;
+    static create: any;
+
     private constructor(
         id:string,
         ip: string,
@@ -17,12 +19,15 @@ class Visitor {
     public getId(): string {
         return this.id;
       }
-      public getIp(): string {
+    public getIp(): string {
         return this.ip;
       }
-      public getNickName(): string {
+    public getNickName(): string {
         return this.nickname;
       }
+    public getPin():string {
+      return this.pin;
+    }
 }
 
 

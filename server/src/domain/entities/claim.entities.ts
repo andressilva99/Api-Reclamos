@@ -14,7 +14,9 @@ class Claim {
   private location: string;
   private createdAT: Date;
   private cloneOf?: Claim;
-    static create: any;
+  private like: number;
+  private dislike: number;
+  static create: any;
 
   private constructor(
     id: string,
@@ -24,7 +26,7 @@ class Claim {
     category: Category,
     location: string,
     createdAT: Date,
-    cloneOf?: Claim
+    cloneOf?: Claim,
   ){
     this.id = id;
     this.owner = owner;
@@ -34,9 +36,14 @@ class Claim {
     this.location = location;
     this.createdAT = createdAT;
     this.cloneOf = cloneOf;
+    this.like = 0;
+    this.dislike = 0;
   }
   public getId(): string {
     return this.id;
+  }
+  public addLike(){
+    this.like++;
   }
 }
 export default Claim;
