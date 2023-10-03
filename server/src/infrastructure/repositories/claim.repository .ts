@@ -1,4 +1,4 @@
-import Claim from '../../domain/entities/claim.entity';
+import Claim from '../../domain/entities/claim.entities';
 
 class ClaimRepository {
     private claims: Claim[];
