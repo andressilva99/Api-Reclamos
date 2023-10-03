@@ -1,8 +1,9 @@
 class Visitor {
-    private id:string
-    private ip: string
-    private nickname: string
+    private id:string;
+    private ip: string;
+    private nickname: string;
     private pin: string;
+    static create: any;
     private constructor(
         id:string,
         ip: string,
