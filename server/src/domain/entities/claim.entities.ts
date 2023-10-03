@@ -65,7 +65,7 @@ class Claim {
    this.like++;
   }
   public addDislike(){
-    this.like++;
+    this.dislike++;
    }
 }
 export default Claim;
