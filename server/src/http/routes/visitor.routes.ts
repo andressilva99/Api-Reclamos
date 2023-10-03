@@ -1,16 +1,4 @@
 import { Application } from 'express';
 import CommonRoutes from './common.routes';
-import createVisitorAction from '../actions/create.visitor.action';
+import createClaimAction from '../actions/create.claim.action';
 
-class VisitorRoutes extends CommonRoutes {
-    public constructor (app: Application){
-        super(app, 'Visitor');
-    }
-    
-    public setUpRoutes(): Application {
-        this.app.post('/visitor', createVisitorAction.run)
-
-        return this.app;
-    }    
-}
-export default VisitorRoutes;

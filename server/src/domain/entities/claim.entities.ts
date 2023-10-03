@@ -10,6 +10,8 @@ class Claim {
   private category: Category;
   private location: string;
   private createdAT: Date;
+  private like: number;
+  private dislike: number;
   private cloneOf?: Claim | undefined;
   static create: any;
 
@@ -21,7 +23,7 @@ class Claim {
     category: Category,
     location: string,
     createdAT: Date,
-    cloneOf?: Claim
+    cloneOf?: Claim,
   ){
     this.id = id;
     this.owner = owner;
@@ -31,10 +33,13 @@ class Claim {
     this.location = location;
     this.createdAT = createdAT;
     this.cloneOf = cloneOf;
+    this.like = 0;
+    this.dislike = 0;
   }
   public getId(): string {
     return this.id;
   }
+
   public getOwner(): Visitor{
     return this.owner;
   }
@@ -56,5 +61,11 @@ class Claim {
   public getCloneOf(): Claim | undefined{
     return this.cloneOf;
   }
+  public addLike(){
+   this.like++;
+  }
+  public addDislike(){
+    this.like++;
+   }
 }
 export default Claim;

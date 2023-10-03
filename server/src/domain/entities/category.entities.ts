@@ -2,7 +2,8 @@ class Category {
   private id: string;
   private name: string;
   private color: string;
-
+  static create: any;
+  
   private constructor(
    id: string,
    name: string,

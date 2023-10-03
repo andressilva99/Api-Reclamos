@@ -4,6 +4,7 @@ class Visitor {
     private nickname: string;
     private pin: string;
     static create: any;
+
     private constructor(
         id:string,
         ip: string,
@@ -15,7 +16,8 @@ class Visitor {
         this.nickname = nickname;
         this.pin = pin;
     }
-    public getId(): string {
+
+    public getId(): string{
       return this.id;
     }
     public getIp(): string {

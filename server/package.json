@@ -5,9 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "node ./dist",
-    "dev": "tsnd --respawn ./src/index.ts",
-    "build": "npx tsc",
+    "start": "tsnd --respawn ./src/index.ts",
     "run:prettier": "prettier --write './src/**/*.ts'"
   },
   "keywords": [],
