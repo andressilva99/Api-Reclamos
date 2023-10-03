@@ -1,10 +1,7 @@
 import Category from "./category.entities";
 import Visitor from "./visitor.entities";
 
-/*
-category: Category
-cloneOf: ?Claim
-*/
+
 class Claim {
   private id: string;
   private owner: Visitor;
@@ -13,8 +10,8 @@ class Claim {
   private category: Category;
   private location: string;
   private createdAT: Date;
-  private cloneOf?: Claim;
-    static create: any;
+  private cloneOf?: Claim | undefined;
+  static create: any;
 
   private constructor(
     id: string,
@@ -37,6 +34,27 @@ class Claim {
   }
   public getId(): string {
     return this.id;
+  }
+  public getOwner(): Visitor{
+    return this.owner;
+  }
+  public getTitle(): string{
+    return this.title;
+  }
+  public getDescripcion(): string{
+    return this.description;
+  }
+  public getCategory(): Category{
+    return this.category;
+  }
+  public getLocation(): string{
+    return this.location;
+  }
+  public getCreatedAT(): Date{
+    return this.createdAT;
+  }
+  public getCloneOf(): Claim | undefined{
+    return this.cloneOf;
   }
 }
 export default Claim;

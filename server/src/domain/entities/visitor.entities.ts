@@ -16,14 +16,17 @@ class Visitor {
         this.pin = pin;
     }
     public getId(): string {
-        return this.id;
-      }
-      public getIp(): string {
-        return this.ip;
-      }
-      public getNickName(): string {
-        return this.nickname;
-      }
+      return this.id;
+    }
+    public getIp(): string {
+      return this.ip;
+    }
+    public getNickName(): string {
+      return this.nickname;
+    }
+    public getPin(): string{
+      return this.pin;
+    }
 }
 
 

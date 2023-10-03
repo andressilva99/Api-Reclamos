@@ -16,5 +16,11 @@ class Category {
   public getId(): string {
     return this.id;
   }
+  public getName(): string{
+    return this.name;
+  }
+  public getColor(): string{
+    return this.color;
+  }
 }
 export default Category;

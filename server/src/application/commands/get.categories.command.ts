@@ -11,8 +11,9 @@ export class GetCategoriesCommand {
             this.name = name;
             this.color = color;
        }
-
-
+    getId(): string{
+        return this.id;
+    }
     getName():string{
         return this.name;
     }
