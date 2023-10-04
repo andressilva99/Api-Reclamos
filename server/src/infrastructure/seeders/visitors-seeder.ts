@@ -17,4 +17,4 @@ class VisitorSeeder {
 }
 
 export default new VisitorSeeder();
- 
+ //
