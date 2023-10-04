@@ -4,9 +4,9 @@ import createVisitorHandler from "../../application/handlers/create.visitor.hand
 
 class createVisitorAction {
     async run(req: Request, res: Response) {
-        const { id, ip, nickname } = req.body;
+        const { id, ip, nickname, pin } = req.body;
 
-        const command = new CreateVisitorCommand(id, ip, nickname);
+        const command = new CreateVisitorCommand(id, ip, nickname, pin);
 
         await createVisitorHandler.execute(command);
 
