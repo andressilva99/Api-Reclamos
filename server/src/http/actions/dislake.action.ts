@@ -17,6 +17,8 @@ class DislakeAction {
             catch (error){
                 return res.status(404).json({message: "ERROR"});
             }
-        }catch{}
+        }catch (e){
+            console.log(e)
+        }
     }
 }
