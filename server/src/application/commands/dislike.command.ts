@@ -1,4 +1,4 @@
-export class DisLikeCommand{
+export class DislikeCommand{
     private readonly idClaim: string;
     private readonly idVisitor: string;
     private readonly pinVisitor: string;
