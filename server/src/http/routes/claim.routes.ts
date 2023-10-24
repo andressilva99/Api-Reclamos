@@ -1,6 +1,7 @@
 import { Application } from "express";
 import CommonRoutes from "./common.routes";
 import createClaimAction from "../actions/create.claim.action";
+import getLastClaimsAction from "../actions/get.last.claims.action"
 
 
 class ClaimRoutes extends CommonRoutes {
@@ -10,6 +11,7 @@ class ClaimRoutes extends CommonRoutes {
 
     setUpRoutes():Application {
         this.app.post('/claim', createClaimAction.run);
+        this.app.get('/claim', getLastClaimsAction.run);
         return this.app;
     }
 
