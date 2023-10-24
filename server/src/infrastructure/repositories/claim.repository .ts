@@ -22,6 +22,11 @@ class ClaimRepository {
 
         return claim ? claim:null;
     } 
+
+    public listLastFive() {
+        const lastFive = this.claims.slice(-5);
+        return lastFive;
+    }
 }
 
 export default new ClaimRepository();
