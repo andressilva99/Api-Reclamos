@@ -4,17 +4,20 @@ class Visitor {
     private nickname: string;
     private pin: string;
     static create: any;
+    private owner: Visitor;
 
     private constructor(
         id:string,
         ip: string,
         nickname: string,
-        pin: string
+        pin: string,
+        owner: Visitor
     ){
         this.id = id;
         this.ip = ip;
         this.nickname = nickname;
         this.pin = pin;
+        this.owner = owner;
     }
 
     public getId(): string{
@@ -28,6 +31,9 @@ class Visitor {
     }
     public getPin(): string{
       return this.pin;
+    }
+    public getOwner(): Visitor{
+      return this.owner;
     }
 }
 
