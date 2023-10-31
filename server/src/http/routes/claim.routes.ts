@@ -1,7 +1,7 @@
 import { Application } from "express";
 import CommonRoutes from "./common.routes";
 import createClaimAction from "../actions/create.claim.action";
-import getLastClaimsAction from "../actions/get.last.claims.action"
+import getLastClaimsAction from "../actions/get.lastclaims.action"
 
 
 class ClaimRoutes extends CommonRoutes {
