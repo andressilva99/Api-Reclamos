@@ -1,7 +1,6 @@
 import Category from "./category.entities";
 import Visitor from "./visitor.entities";
 
-
 class Claim {
   private id: string;
   private owner: Visitor;
@@ -24,7 +23,7 @@ class Claim {
     location: string,
     createdAT: Date,
     cloneOf?: Claim,
-  ){
+  ) {
     this.id = id;
     this.owner = owner;
     this.title = title;
@@ -39,33 +38,32 @@ class Claim {
   public getId(): string {
     return this.id;
   }
-
-  public getOwner(): Visitor{
+  public getOwner(): Visitor {
     return this.owner;
   }
-  public getTitle(): string{
+  public getTitle(): string {
     return this.title;
   }
-  public getDescripcion(): string{
+  public getDescripcion(): string {
     return this.description;
   }
-  public getCategory(): Category{
+  public getCategory(): Category {
     return this.category;
   }
-  public getLocation(): string{
+  public getLocation(): string {
     return this.location;
   }
-  public getCreatedAT(): Date{
+  public getCreatedAT(): Date {
     return this.createdAT;
   }
-  public getCloneOf(): Claim | undefined{
+  public getCloneOf(): Claim | undefined {
     return this.cloneOf;
   }
-  public addLike(){
-   this.like++;
+  public addLike() {
+    return this.like++;
   }
-  public addDislike(){
-    this.dislike++;
-   }
+  public addDislike() {
+    return this.dislike++;
+  }
 }
 export default Claim;
