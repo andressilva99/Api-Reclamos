@@ -30,7 +30,7 @@ class ClaimRepository {
         return lastFive;
     }
 
-    public async listTop5ByLikes(): Promise<Claim[] | null > {
+    public async listTop5ByLikes(): Promise<Claim[]> {
         const allClaims: Claim[] = this.claims;
         const sortedClaims = allClaims.sort((a,b)=> b.addLike() - a.addLike())
         const top5Claims = sortedClaims.slice(0, 5);
