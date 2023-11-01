@@ -7,6 +7,7 @@ class ReportClaimHandler{
         const claimOriginal: Claim|null = await claimRepository.findOneById(command.getIdClaimOriginal());
         const claimDuplicado: Claim|null = await claimRepository.findOneById(command.getIdClaimDuplicado());
 
+
         if(!claimOriginal) {
             throw new Error("Original Claim not Found!...");
         }
@@ -15,8 +16,11 @@ class ReportClaimHandler{
                 throw new Error("Reported Claim Not Found!...");
             }
             else {
-                claimDuplicado?.setCloneOf(claimOriginal);
-                await claimRepository.save(claimDuplicado)
+                if(claimOriginal.getCreatedAT()<claimDuplicado.getCreatedAT())
+                {
+                    claimDuplicado?.setCloneOf(claimOriginal);
+                    await claimRepository.save(claimDuplicado);
+                } else throw new Error ("Reported claim date prior to the selected one!...");
             }
         }
     }
