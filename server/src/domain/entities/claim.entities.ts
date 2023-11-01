@@ -65,5 +65,8 @@ class Claim {
   public addDislike() {
     return this.dislike++;
   }
+  public setCloneOf(cloneOf: Claim){
+    this.cloneOf = cloneOf;
+  }
 }
 export default Claim;
