@@ -16,3 +16,5 @@ class ReportClaimAction {
         } catch{}
     }
 }
+
+export default new ReportClaimAction;
