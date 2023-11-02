@@ -1,5 +1,5 @@
 import Claim from "../../domain/entities/claim.entities";
-import claimRepository from "../../infrastructure/repositories/claim.repository ";
+import claimRepository from "../../infrastructure/repositories/claim.repository";
 import { CreateClaimCommand } from "../commands/create.claim.command";
 
 class CreateClaimHandlers {
@@ -10,7 +10,6 @@ class CreateClaimHandlers {
       command.getDescription(),
       command.getCategory(),
       command.getLocation(),
-      command.getCreatedAT()
     );
     const pin = command.getPin();
     if (validacionPin(pin)) {

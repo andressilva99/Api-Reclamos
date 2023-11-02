@@ -1,7 +1,7 @@
 import Claim from '../../domain/entities/claim.entities';
 import Visitor from '../../domain/entities/visitor.entities';
-import visitorRepository from './visitor.repository';
-class ClaimRepository {
+
+export class ClaimRepository {
     private claims: Claim[];
     public constructor() {
         this.claims = []
@@ -33,7 +33,7 @@ class ClaimRepository {
 
     public async listTop5ByLikes(): Promise<Claim[]> {
         const allClaims: Claim[] = this.claims;
-        const sortedClaims = allClaims.sort((a,b)=> b.getAddLike() - a.getAddLike())
+        const sortedClaims = allClaims.sort((a,b)=> b.getLikeCount() - a.getLikeCount())
         const top5Claims = sortedClaims.slice(0, 5);
         return top5Claims;
     }
@@ -42,7 +42,7 @@ class ClaimRepository {
         const now = new Date();
         const oneHourAgo = new Date(now.getTime() - 60 * 60 * 1000); 
         const claimsInLastHour = this.claims.filter((claim) => claim.getCreatedAT() >= oneHourAgo);
-        const sortedClaims = claimsInLastHour.sort((a, b) => b.getAddLike() - a.getAddLike());
+        const sortedClaims = claimsInLastHour.sort((a, b) => b.getLikeCount() - a.getLikeCount());
         const top5Claims = sortedClaims.slice(0, 5);
         return top5Claims;
     }

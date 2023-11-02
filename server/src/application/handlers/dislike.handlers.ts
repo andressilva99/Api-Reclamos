@@ -16,7 +16,7 @@ class DislikeHandlers {
     if (!visitor) throw new Error("VISITOR NOUT FOUND");
     const isValid = visitor.getPin === command.getPinVisitor;
     if (!isValid) throw new Error("PIN NO VALIDO");
-    claim.getAddDislike();
+    claim.getDislikeCount();
     await claimRepository.save(claim);
   }
 }
