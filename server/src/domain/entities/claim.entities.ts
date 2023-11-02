@@ -22,7 +22,7 @@ class Claim {
     category: Category,
     location: string,
     createdAT: Date,
-    cloneOf?: Claim,
+    cloneOf?: Claim
   ) {
     this.id = id;
     this.owner = owner;
@@ -35,6 +35,7 @@ class Claim {
     this.like = 0;
     this.dislike = 0;
   }
+
   public getId(): string {
     return this.id;
   }
@@ -59,14 +60,15 @@ class Claim {
   public getCloneOf(): Claim | undefined {
     return this.cloneOf;
   }
-  public addLike() {
+  public getAddLike() {
     return this.like++;
   }
-  public addDislike() {
+  public getAddDislike() {
     return this.dislike++;
   }
-  public setCloneOf(cloneOf: Claim){
+  public getSetCloneOf(cloneOf: Claim) {
     this.cloneOf = cloneOf;
   }
 }
+
 export default Claim;
