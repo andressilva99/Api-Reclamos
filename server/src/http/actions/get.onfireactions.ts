@@ -9,11 +9,9 @@ class GetOnFireAction {
       return res.status(200).json(getonfireaction);
     } catch (error) {
       console.error(error);
-      res
-        .status(500)
-        .json({
-          error: "Ocurrio un error al obtener los últimos cinco resultados",
-        });
+      res.status(500).json({
+        error: "Ocurrio un error al obtener los últimos cinco con más me gusta",
+      });
     }
   }
 }
