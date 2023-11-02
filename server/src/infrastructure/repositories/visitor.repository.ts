@@ -1,5 +1,5 @@
 import Visitor from "../../domain/entities/visitor.entities";
-class VisitorRepository {
+export class VisitorRepository {
   private visitors: Visitor[];
   public constructor() {
     this.visitors = [];
@@ -23,14 +23,6 @@ class VisitorRepository {
 
   public async listLastFive() {
     const lastFive: Visitor[] = this.visitors.slice(-5);
-    return lastFive;
-  }
-
-  public async listLastFiveByVisitor(owner: Visitor) {
-    const claimsVisitor: Visitor[] = this.visitors.filter(
-      (Visitor) => Visitor.getOwner() === owner
-    );
-    const lastFive: Visitor[] = claimsVisitor.slice(-5);
     return lastFive;
   }
 }

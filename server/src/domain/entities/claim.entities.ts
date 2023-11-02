@@ -1,5 +1,6 @@
 import Category from "./category.entities";
 import Visitor from "./visitor.entities";
+import {v4} from 'uuid';
 
 class Claim {
   private id: string;
@@ -9,10 +10,9 @@ class Claim {
   private category: Category;
   private location: string;
   private createdAT: Date;
-  private like: number;
-  private dislike: number;
+  private likes: string[] = [];
+  private dislikes: string[] = [];
   private cloneOf?: Claim | undefined;
-  static create: any;
 
   private constructor(
     id: string,
@@ -32,8 +32,25 @@ class Claim {
     this.location = location;
     this.createdAT = createdAT;
     this.cloneOf = cloneOf;
-    this.like = 0;
-    this.dislike = 0;
+  }
+
+
+  public static create(
+    owner: Visitor,
+    category: Category,
+    title: string,
+    description: string,
+    location: string
+  ): Claim {
+    return new Claim(
+      v4(),
+      owner,
+      title,
+      description,
+      category,
+      location,
+      new Date()
+    )
   }
 
   public getId(): string {
@@ -60,14 +77,26 @@ class Claim {
   public getCloneOf(): Claim | undefined {
     return this.cloneOf;
   }
-  public getAddLike() {
-    return this.like++;
+  public getLikeCount() {
+    return this.likes.length;
   }
-  public getAddDislike() {
-    return this.dislike++;
+  public getDislikeCount() {
+    return this.dislikes.length;
   }
   public getSetCloneOf(cloneOf: Claim) {
     this.cloneOf = cloneOf;
+  }
+
+  addLike(id: string) {
+    if (this.hasVisitorLiked(id)) {
+      throw new Error('Visitor has already liked this claim.')
+    }
+
+    this.likes.push(id)
+  }
+
+  public hasVisitorLiked(id:string) {
+    return this.likes.includes(id);
   }
 }
 
