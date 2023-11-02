@@ -3,24 +3,20 @@ class Category {
   private name: string;
   private color: string;
   static create: any;
-  
-  private constructor(
-   id: string,
-   name: string,
-   color: string
-  )
-  {
+
+  private constructor(id: string, name: string, color: string) {
     this.id = id;
     this.name = name;
-    this.color = color;    
+    this.color = color;
   }
+
   public getId(): string {
     return this.id;
   }
-  public getName(): string{
+  public getName(): string {
     return this.name;
   }
-  public getColor(): string{
+  public getColor(): string {
     return this.color;
   }
 }

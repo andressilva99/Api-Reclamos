@@ -1,37 +1,38 @@
 import Visitor from "../../domain/entities/visitor.entities";
 class VisitorRepository {
-    private visitors: Visitor[];
+  private visitors: Visitor[];
+  public constructor() {
+    this.visitors = [];
+  }
 
-    public constructor() {
-        this.visitors = []
+  public async save(visitor: Visitor): Promise<void> {
+    const saveVisitor = this.visitors.find(
+      (a) => a.getId() === visitor.getId()
+    );
+
+    if (saveVisitor) {
+      this.visitors.splice(this.visitors.indexOf(saveVisitor), 1);
     }
+    this.visitors.push(visitor);
+  }
 
+  public async findOneById(id: string): Promise<Visitor | null> {
+    const visitor = this.visitors.find((a) => a.getId() === id);
+    return visitor ? visitor : null;
+  }
 
-    public async save(visitor: Visitor): Promise<void> {
-        const saveVisitor = this.visitors.find(a => a.getId() === visitor.getId());
+  public async listLastFive() {
+    const lastFive: Visitor[] = this.visitors.slice(-5);
+    return lastFive;
+  }
 
-        if (saveVisitor) {
-            this.visitors.splice(this.visitors.indexOf(saveVisitor), 1);
-        }
-        this.visitors.push(visitor)
-    }
-
-    public async findOneById(id: string): Promise<Visitor | null> {
-        const visitor = this.visitors.find(a => a.getId() === id);
-
-        return visitor ? visitor:null;
-    } 
-
-    public async listLastFive() {
-        const lastFive:Visitor[] = this.visitors.slice(-5);
-        return lastFive;
-    }
-
-    public async listLastFiveByVisitor(owner: Visitor) {
-        const claimsVisitor:Visitor[] = this.visitors.filter((Visitor) => Visitor.getOwner() === owner);
-        const lastFive: Visitor[] = claimsVisitor.slice(-5);
-        return lastFive;
-    }
+  public async listLastFiveByVisitor(owner: Visitor) {
+    const claimsVisitor: Visitor[] = this.visitors.filter(
+      (Visitor) => Visitor.getOwner() === owner
+    );
+    const lastFive: Visitor[] = claimsVisitor.slice(-5);
+    return lastFive;
+  }
 }
 
 export default new VisitorRepository();
