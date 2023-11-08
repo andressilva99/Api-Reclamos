@@ -69,6 +69,9 @@ class Claim {
   public getSetCloneOf(cloneOf: Claim) {
     this.cloneOf = cloneOf;
   }
+  public getLike(){
+    return this.like;
+  }
 }
 
 export default Claim;
