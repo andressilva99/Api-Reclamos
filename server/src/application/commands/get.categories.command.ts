@@ -12,7 +12,9 @@ export class GetCategoriesCommand {
             this.color = color;
        }
 
-
+    getId():string{
+        return this.id;
+    }
     getName():string{
         return this.name;
     }
