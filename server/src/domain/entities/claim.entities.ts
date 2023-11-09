@@ -1,10 +1,6 @@
 import Category from "./category.entities";
 import Visitor from "./visitor.entities";
 
-/*
-category: Category
-cloneOf: ?Claim
-*/
 class Claim {
   private id: string;
   private owner: Visitor;
@@ -13,8 +9,10 @@ class Claim {
   private category: Category;
   private location: string;
   private createdAT: Date;
-  private cloneOf?: Claim;
-    static create: any;
+  private like: number;
+  private dislike: number;
+  private cloneOf?: Claim | undefined;
+  static create: any;
 
   private constructor(
     id: string,
@@ -25,7 +23,7 @@ class Claim {
     location: string,
     createdAT: Date,
     cloneOf?: Claim
-  ){
+  ) {
     this.id = id;
     this.owner = owner;
     this.title = title;
@@ -34,9 +32,46 @@ class Claim {
     this.location = location;
     this.createdAT = createdAT;
     this.cloneOf = cloneOf;
+    this.like = 0;
+    this.dislike = 0;
   }
+
   public getId(): string {
     return this.id;
   }
+  public getOwner(): Visitor {
+    return this.owner;
+  }
+  public getTitle(): string {
+    return this.title;
+  }
+  public getDescripcion(): string {
+    return this.description;
+  }
+  public getCategory(): Category {
+    return this.category;
+  }
+  public getLocation(): string {
+    return this.location;
+  }
+  public getCreatedAT(): Date {
+    return this.createdAT;
+  }
+  public getCloneOf(): Claim | undefined {
+    return this.cloneOf;
+  }
+  public getAddLike() {
+    return this.like++;
+  }
+  public getAddDislike() {
+    return this.dislike++;
+  }
+  public getSetCloneOf(cloneOf: Claim) {
+    this.cloneOf = cloneOf;
+  }
+  public getLike(){
+    return this.like;
+  }
 }
+
 export default Claim;
