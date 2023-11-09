@@ -17,7 +17,7 @@ class ClaimSeeder {
 
 public async generate(){
     this.visitors = await visitorRepository.findAll();
-    this.categories = await categoryRepository.findAll();
+    this.categories = await categoryRepository.getAllCategory();
 
     for (const visitor of this.visitors){
         for(const category of this.categories){
