@@ -1,9 +1,9 @@
-import Visitor from "domain/entities/visitor.entities";
-import Category from "domain/entities/category.entities";
-import Claim from "domain/entities/claim.entities";
-import visitorRepository from "infrastructure/repositories/visitor.repository";
-import categoryRepository from "infrastructure/repositories/category.repository";
-import claimRepository from "infrastructure/repositories/claim.repository ";
+import Claim from "../../domain/entities/claim.entities";
+import Visitor from "../../domain/entities/visitor.entities";
+import Category from "../../domain/entities/category.entities";
+import claimRepository from "../../infrastructure/repositories/claim.repository ";
+import visitorRepository from "../../infrastructure/repositories/visitor.repository";
+import categoryRepository from "../../infrastructure/repositories/category.repository";
 
 class ClaimSeeder {
     private claims: Claim[] = [];
