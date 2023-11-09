@@ -21,6 +21,11 @@ class VisitorRepository {
     return visitor ? visitor : null;
   }
 
+  async findAll(): Promise<Visitor[]> {
+    const visitors = this.visitors;
+    return visitors;
+  }
+
   public async listLastFive() {
     const lastFive: Visitor[] = this.visitors.slice(-5);
     return lastFive;
