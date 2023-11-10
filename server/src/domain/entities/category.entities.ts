@@ -1,8 +1,8 @@
+import { v4 } from 'uuid';
 class Category {
-  private id: string;
-  private name: string;
-  private color: string;
-  static create: any;
+   id: string;
+   name: string;
+   color: string;
 
   private constructor(id: string, name: string, color: string) {
     this.id = id;
@@ -13,11 +13,8 @@ class Category {
   public getId(): string {
     return this.id;
   }
-  public getName(): string {
-    return this.name;
-  }
-  public getColor(): string {
-    return this.color;
-  }
+  static create(name: string, color: string): Category {
+    return new Category(v4(), name, color);
+}
 }
 export default Category;

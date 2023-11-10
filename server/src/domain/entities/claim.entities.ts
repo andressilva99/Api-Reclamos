@@ -1,6 +1,6 @@
 import Category from "./category.entities";
 import Visitor from "./visitor.entities";
-
+import { v4 } from 'uuid';
 class Claim {
   private id: string;
   private owner: Visitor;
@@ -9,11 +9,9 @@ class Claim {
   private category: Category;
   private location: string;
   private createdAT: Date;
+  private cloneOf?: Claim | undefined;
   private like: number;
   private dislike: number;
-  private cloneOf?: Claim | undefined;
-  static create: any;
-
   private constructor(
     id: string,
     owner: Visitor,
@@ -22,7 +20,7 @@ class Claim {
     category: Category,
     location: string,
     createdAT: Date,
-    cloneOf?: Claim
+    cloneOf?: Claim | undefined,
   ) {
     this.id = id;
     this.owner = owner;
@@ -39,27 +37,6 @@ class Claim {
   public getId(): string {
     return this.id;
   }
-  public getOwner(): Visitor {
-    return this.owner;
-  }
-  public getTitle(): string {
-    return this.title;
-  }
-  public getDescripcion(): string {
-    return this.description;
-  }
-  public getCategory(): Category {
-    return this.category;
-  }
-  public getLocation(): string {
-    return this.location;
-  }
-  public getCreatedAT(): Date {
-    return this.createdAT;
-  }
-  public getCloneOf(): Claim | undefined {
-    return this.cloneOf;
-  }
   public getAddLike() {
     return this.like++;
   }
@@ -71,6 +48,9 @@ class Claim {
   }
   public getLike(){
     return this.like;
+  }
+  static create(owner: Visitor, title: string, description: string, category: Category, location: string, createAt: Date): Claim {
+    return new Claim(v4(), owner, title, description, category, location, createAt);
   }
 }
 

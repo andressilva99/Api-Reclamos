@@ -31,9 +31,9 @@ class VisitorRepository {
     return lastFive;
   }
 
-  public async listLastFiveByVisitor(owner: Visitor) {
+  public async listLastFiveByVisitor(id: string) {
     const claimsVisitor: Visitor[] = this.visitors.filter(
-      (Visitor) => Visitor.getOwner() === owner
+      (Visitor) => Visitor.getId() === id
     );
     const lastFive: Visitor[] = claimsVisitor.slice(-5);
     return lastFive;

@@ -6,36 +6,36 @@ import visitorRepository from "../../infrastructure/repositories/visitor.reposit
 import categoryRepository from "../../infrastructure/repositories/category.repository";
 
 class ClaimSeeder {
-    private claims: Claim[] = [];
-    private visitors: Visitor[] = [];
-    private categories: Category[] = [];
+  private claims: Claim[] = [];
+  private visitors: Visitor[] = [];
+  private categories: Category[] = [];
 
-    public constructor(){
-        this.generate();
-    }
+  public constructor() {
+    this.generate();
+  }
 
-
-public async generate(){
+  public async generate() {
     this.visitors = await visitorRepository.findAll();
-    this.categories = await categoryRepository.findAll();
-
-    for (const visitor of this.visitors){
-        for(const category of this.categories){
-            this.claims.push(Claim.create(
-                visitor,
-                'Seeder title',
-                'Seeder description',
-                category,
-                "Arroyito"
-                )
-            );
-        }
+    this.categories = await categoryRepository.getAllCategory();
+    for (const visitor of this.visitors) {
+      for (const category of this.categories) {
+        this.claims.push(
+          Claim.create(
+            visitor,
+            "title",
+            "description",
+            category,
+            "Arroyito",
+            new Date,
+          )
+        );
+      }
     }
 
-        for(const claim of this.claims){
-            await claimRepository.save(claim);
-        }
-    } 
+    for (const claim of this.claims) {
+      await claimRepository.save(claim);
+    }
+  }
 }
 
 export default new ClaimSeeder();
