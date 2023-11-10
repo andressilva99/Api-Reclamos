@@ -1,5 +1,4 @@
 import Category from "../../domain/entities/category.entities";
-import Claim from "../../domain/entities/claim.entities";
 import Visitor from "../../domain/entities/visitor.entities";
 
 export class CreateClaimCommand {
