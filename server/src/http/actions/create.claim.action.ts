@@ -25,7 +25,7 @@ class CreateUserAction {
       like
     );
     await createClaimHandlers.execute(command);
-    return res.status(201).json({ message: "User Created" });
+    return res.status(201).json({ message: "Claim Created" });
   }
 }
 
