@@ -2,7 +2,7 @@ import claimRepository from "../../infrastructure/repositories/claim.repository 
 import Claim from "../../domain/entities/claim.entities";
 import { Request, Response } from "express";
 
-class GetOnFireActionLastHout {
+class GetOnFireActionLastHour {
   async run(req: Request, res: Response) {
     try {
       const getonfireaction: Claim[] =
@@ -18,4 +18,4 @@ class GetOnFireActionLastHout {
   }
 }
 
-export default new GetOnFireActionLastHout();
+export default new GetOnFireActionLastHour();

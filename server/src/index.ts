@@ -12,6 +12,7 @@ import claimSeeder from "./infrastructure/seeders/claims.seeder";
 import categoriesSeeder from "./infrastructure/seeders/categories.seeder";
 
 const app: express.Application = express();
+app.use(express.json());
 
 const loggerOptions: expressWinston.LoggerOptions = {
   transports: [new winston.transports.Console()],
@@ -38,7 +39,7 @@ try {
 app.use(expressWinston.logger(loggerOptions));
 
 
-const routes: Array<CommonRoutes> = [];
+const routes: Array<CommonRoutes> = [new CategoryRoutes(app), new VisitorRoutes(app), new ClaimRoutes(app)];
 app.use(cors());
 app.use(express.json());
 
@@ -47,9 +48,9 @@ app.use(express.json());
 //routes.push(new PassengerRoutes(app)); crear una nueva estancia del la ruta y push
 //routes.push()
 
-routes.push(new CategoryRoutes(app));
-routes.push(new VisitorRoutes(app));
-routes.push(new ClaimRoutes(app));
+// routes.push(new CategoryRoutes(app));
+// routes.push(new VisitorRoutes(app));
+// routes.push(new ClaimRoutes(app));
 
 app.listen(3000, () => {
   routes.forEach((route: CommonRoutes) => {

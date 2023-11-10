@@ -1,20 +1,26 @@
+import Category from "../../domain/entities/category.entities";
+import Claim from "../../domain/entities/claim.entities";
+import Visitor from "../../domain/entities/visitor.entities";
+
 export class CreateClaimCommand {
-  private readonly ownerId: string;
+  private readonly ownerId: Visitor;
   private readonly title: string;
   private readonly description: string;
-  private readonly categoryId: string;
+  private readonly categoryId: Category;
   private readonly location: string;
   private readonly createdAT: Date;
   private readonly pin: string;
+  private readonly like: number;
 
   constructor(
-    ownerId: string,
+    ownerId: Visitor,
     title: string,
     description: string,
-    categoryId: string,
+    categoryId: Category,
     location: string,
     createdAT: Date,
-    pin: string
+    pin: string,
+    like: number,
   ) {
     this.ownerId = ownerId;
     this.title = title;
@@ -23,9 +29,10 @@ export class CreateClaimCommand {
     this.location = location;
     this.createdAT = createdAT;
     this.pin = pin;
+    this.like = like;
   }
 
-  getOwner(): string {
+  getOwner(): Visitor {
     return this.ownerId;
   }
   getTitle(): string {
@@ -34,7 +41,7 @@ export class CreateClaimCommand {
   getDescription(): string {
     return this.description;
   }
-  getCategory(): string {
+  getCategory(): Category {
     return this.categoryId;
   }
   getLocation(): string {
@@ -45,5 +52,8 @@ export class CreateClaimCommand {
   }
   getPin(): string {
     return this.pin;
+  }
+  getLike(): number {
+    return this.like;
   }
 }

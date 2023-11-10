@@ -10,7 +10,8 @@ class CreateClaimHandlers {
       command.getDescription(),
       command.getCategory(),
       command.getLocation(),
-      command.getCreatedAT()
+      command.getCreatedAT(),
+      command.getLike(),
     );
     const pin = command.getPin();
     if (validacionPin(pin)) {

@@ -12,6 +12,7 @@ class CreateUserAction {
       location,
       createdAT,
       pin,
+      like
     } = req.body;
     const command = new CreateClaimCommand(
       ownerId,
@@ -20,7 +21,8 @@ class CreateUserAction {
       categoryId,
       location,
       createdAT,
-      pin
+      pin,
+      like
     );
     await createClaimHandlers.execute(command);
     return res.status(201).json({ message: "User Created" });

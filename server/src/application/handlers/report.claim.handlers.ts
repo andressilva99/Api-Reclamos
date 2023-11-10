@@ -7,7 +7,7 @@ class ReportClaimHandler {
     const claimOriginal: Claim | null = await claimRepository.findOneById(
       command.getIdClaimOriginal()
     );
-    const claimDuplicado: Claim | null = await claimRepository.findOneById(
+    const claimDuplicado: any | null = await claimRepository.findOneById(
       command.getIdClaimDuplicado()
     );
     if (!claimOriginal) {

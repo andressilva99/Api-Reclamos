@@ -8,7 +8,6 @@ class createVisitorHandler {
       command.getId(),
       command.getIp(),
       command.getNickName(),
-      command.getPin()
     );
     await visitorRepository.save(user);
   }

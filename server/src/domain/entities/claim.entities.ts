@@ -9,9 +9,9 @@ class Claim {
   private category: Category;
   private location: string;
   private createdAT: Date;
-  private cloneOf?: Claim | undefined;
   private like: number;
   private dislike: number;
+
   private constructor(
     id: string,
     owner: Visitor,
@@ -20,7 +20,7 @@ class Claim {
     category: Category,
     location: string,
     createdAT: Date,
-    cloneOf?: Claim | undefined,
+    like: number,
   ) {
     this.id = id;
     this.owner = owner;
@@ -29,13 +29,30 @@ class Claim {
     this.category = category;
     this.location = location;
     this.createdAT = createdAT;
-    this.cloneOf = cloneOf;
-    this.like = 0;
+    this.like = like;
     this.dislike = 0;
   }
 
   public getId(): string {
     return this.id;
+  }
+  public getOwner(): Visitor {
+    return this.owner;
+  }
+  public getTitle(): string {
+    return this.title;
+  }
+  public getDescripcion(): string {
+    return this.description;
+  }
+  public getCategory(): Category {
+    return this.category;
+  }
+  public getLocation(): string {
+    return this.location;
+  }
+  public getCreatedAT(): Date {
+    return this.createdAT;
   }
   public getAddLike() {
     return this.like++;
@@ -43,14 +60,11 @@ class Claim {
   public getAddDislike() {
     return this.dislike++;
   }
-  public getSetCloneOf(cloneOf: Claim) {
-    this.cloneOf = cloneOf;
-  }
   public getLike(){
     return this.like;
   }
-  static create(owner: Visitor, title: string, description: string, category: Category, location: string, createAt: Date): Claim {
-    return new Claim(v4(), owner, title, description, category, location, createAt);
+  static create(owner: Visitor, title: string, description: string, category: Category, location: string, createAt: Date, like: number): Claim {
+    return new Claim(v4(), owner, title, description, category, location, createAt, like);
   }
 }
 
